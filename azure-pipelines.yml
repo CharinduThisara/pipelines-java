@@ -14,16 +14,15 @@ parameters:
     type: string
     default: $(API_KEY)
 
-steps:
+resources:
+  repositories:
+    - repository: templates-repo
+      type: github
+      name: CharinduThisara/Charindut-testing
+      ref: refs/tags/v1
+      endpoint: github.com_CharinduThisara
 
-- script: |
-    mkdir -p $(Agent.ToolsDirectory)/_jf/current/
-    cd $(Agent.ToolsDirectory)/_jf/current/
-    wget -O jf https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/2.56.0/jfrog-cli-linux-amd64/jf
-    chmod +x jf
-    ln -s $(Agent.ToolsDirectory)/_jf/current/jf /usr/local/bin/jf
-    jf -version
-  displayName: 'Install JFrog CLI'
+steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -35,8 +34,8 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
     
+- template: sca-test-jfrog.yml@templates-repo
+  parameters:
+    API_KEY: $(parameters.API_KEY)
 
-- script: |
-    jf setup ${{ parameters.API_KEY }}
-    jf audit --mvn
-  displayName: 'JFrog Maven Integration'
+
