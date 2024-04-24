@@ -36,6 +36,6 @@ steps:
     
 - template: sca-test-jfrog.yml@templates-repo
   parameters:
-    API_KEY: $(parameters.API_KEY)
+    API_KEY: ${{ parameters.API_KEY }}
 
 
