@@ -9,6 +9,11 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+parameters:
+  - name: API_KEY
+    type: string
+    default: $(API_KEY)
+
 steps:
 
 - script: |
@@ -32,6 +37,6 @@ steps:
     
 
 - script: |
-    ls
+    jf setup ${{ parameters.API_KEY }}
     jf audit --mvn
   displayName: 'JFrog Maven Integration'
