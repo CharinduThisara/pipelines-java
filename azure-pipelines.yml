@@ -32,8 +32,6 @@ steps:
     
 
 - script: |
-    jf rt mvn clean install --build-name=$(Build.DefinitionName) --build-number=$(Build.BuildNumber) \
-    --repo-resolve="libs-release" --repo-resolve="libs-snapshot" \
-    --repo-deploy="libs-release" --repo-deploy="libs-snapshot" \
-    --include-env-vars=true
+    ls
+    jf audit --mvn
   displayName: 'JFrog Maven Integration'
