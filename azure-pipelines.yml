@@ -32,7 +32,7 @@ steps:
     
 
 - script: |
-    cd (Build.SourcesDirectory)/$(Build.Repository.Name)
+    cd $(Build.Repository.Name)
     jf rt mvn clean install --build-name=$(Build.DefinitionName) --build-number=$(Build.BuildNumber) \
     --repo-resolve="libs-release" --repo-resolve="libs-snapshot" \
     --repo-deploy="libs-release" --repo-deploy="libs-snapshot" \
