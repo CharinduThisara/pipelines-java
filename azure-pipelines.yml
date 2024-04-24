@@ -30,8 +30,9 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
     
+
 - script: |
-    cd $(Build.SourcesDirectory)  # Change to the directory where your Maven project is located
+    cd (Build.SourcesDirectory)/$(Build.Repository.Name)
     jf rt mvn clean install --build-name=$(Build.DefinitionName) --build-number=$(Build.BuildNumber) \
     --repo-resolve="libs-release" --repo-resolve="libs-snapshot" \
     --repo-deploy="libs-release" --repo-deploy="libs-snapshot" \
