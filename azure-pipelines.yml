@@ -16,6 +16,8 @@ steps:
     cd $(Agent.ToolsDirectory)/_jf/current/
     wget -O jf https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/2.56.0/jfrog-cli-linux-amd64/jf
     chmod +x jf
+    ln -s $(Agent.ToolsDirectory)/_jf/current/jf /usr/local/bin/jf
+    jf -version
   displayName: 'Install JFrog CLI'
 - task: Maven@3
   inputs:
@@ -30,7 +32,7 @@ steps:
     
 - script: |
     cd $(Build.SourcesDirectory)  # Change to the directory where your Maven project is located
-    jfrog rt mvn clean install --build-name=$(Build.DefinitionName) --build-number=$(Build.BuildNumber) \
+    jf rt mvn clean install --build-name=$(Build.DefinitionName) --build-number=$(Build.BuildNumber) \
     --repo-resolve="libs-release" --repo-resolve="libs-snapshot" \
     --repo-deploy="libs-release" --repo-deploy="libs-snapshot" \
     --include-env-vars=true
