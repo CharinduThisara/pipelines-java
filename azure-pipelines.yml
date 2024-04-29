@@ -1,10 +1,12 @@
-# Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
-
 trigger:
-- main
+  branches:
+    exclude:
+      - '*'
+
+pr:
+  branches:
+    include:
+      - '*'
 
 pool:
   vmImage: ubuntu-latest
@@ -19,7 +21,7 @@ resources:
     - repository: templates-repo
       type: github
       name: CharinduThisara/Charindut-testing
-      ref: refs/tags/v1.1
+      ref: refs/tags/v1.3
       endpoint: github.com_CharinduThisara
 
 steps:
@@ -27,5 +29,4 @@ steps:
   parameters:
     ACCESS_TOKEN: ${{ parameters.ACCESS_TOKEN }}
     PROJECT_TYPE: mvn
-
-
+    GITHUB_ENDPOINT: 'github.com_CharinduThisara'
