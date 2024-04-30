@@ -30,4 +30,4 @@ steps:
     ACCESS_TOKEN: ${{ parameters.ACCESS_TOKEN }}
     PROJECT_TYPE: mvn
     GITHUB_CONNECTION: 'github.com_CharinduThisara'
-    SERVER_IDENTIFIER: charindut
+    SERVER_IDENTIFIER: 'charindut'
