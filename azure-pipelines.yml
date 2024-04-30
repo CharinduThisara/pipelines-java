@@ -20,12 +20,13 @@ resources:
   repositories:
     - repository: templates
       type: github
-      name: CharinduThisara/azure-pipeline-templates
+      ref: refs/tags/v2.1
+      name: CharinduThisara/Charindut-testing
       endpoint: github.com_CharinduThisara
 
 steps:
-- template: ci-pipelines/templates/sca-scan-jfrog.yaml@templates
+- template: sca-test-jfrog.yml@templates
   parameters:
     ACCESS_TOKEN: ${{ parameters.ACCESS_TOKEN }}
     PROJECT_TYPE: mvn
-    GITHUB_ENDPOINT: 'github.com_CharinduThisara'
+    GITHUB_CONNECTION: 'github.com_CharinduThisara'
