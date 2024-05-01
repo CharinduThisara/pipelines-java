@@ -20,7 +20,7 @@ resources:
   repositories:
     - repository: templates
       type: github
-      ref: refs/tags/v2.2
+      ref: refs/tags/v2.3
       name: CharinduThisara/Charindut-testing
       endpoint: github.com_CharinduThisara
 
@@ -32,3 +32,4 @@ steps:
     GITHUB_CONNECTION: 'github.com_CharinduThisara'
     CONNECTION_NAME: 'charindut'
     URL: https://charindut.jfrog.io/
+    WATCHES: asgardeo-pipelines
