@@ -20,7 +20,7 @@ resources:
   repositories:
     - repository: templates
       type: github
-      ref: refs/tags/v2.3
+      ref: refs/tags/v2.4.3
       name: CharinduThisara/Charindut-testing
       endpoint: github.com_CharinduThisara
 
@@ -30,6 +30,5 @@ steps:
     ACCESS_TOKEN: ${{ parameters.ACCESS_TOKEN }}
     PROJECT_TYPE: mvn
     GITHUB_CONNECTION: 'github.com_CharinduThisara'
-    CONNECTION_NAME: 'charindut'
-    URL: https://charindut.jfrog.io/
-    WATCHES: asgardeo-pipelines
+    SERVER_ID: 'charindut'
+    SERVER_URL: https://charindut.jfrog.io/
