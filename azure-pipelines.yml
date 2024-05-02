@@ -20,7 +20,7 @@ resources:
   repositories:
     - repository: templates
       type: github
-      ref: refs/tags/v2.4.4
+      ref: refs/tags/v2.4.5
       name: CharinduThisara/Charindut-testing
       endpoint: github.com_CharinduThisara
 
