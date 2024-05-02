@@ -27,8 +27,7 @@ resources:
 steps:
 - template: sca-test-jfrog.yml@templates
   parameters:
-    ACCESS_TOKEN: ${{ parameters.ACCESS_TOKEN }}
-    PROJECT_TYPE: mvn
+    ACCESS_TOKEN: ${{ parameters.ACCESS_TOKEN }} 
     GITHUB_CONNECTION: 'github.com_CharinduThisara'
     SERVER_ID: 'charindut'
     SERVER_URL: https://charindut.jfrog.io/
