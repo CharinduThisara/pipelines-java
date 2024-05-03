@@ -31,3 +31,4 @@ steps:
     GITHUB_CONNECTION: 'github.com_CharinduThisara'
     SERVER_ID: 'charindut'
     SERVER_URL: https://charindut.jfrog.io/
+    PROJECT_TYPE: mvn
